@@ -11,7 +11,7 @@ let lastTime;
 
 function update(time) {
 
-    if(lastTime != null) {
+    if (lastTime != null) {
 
         const delta = time - lastTime;
         ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
@@ -20,7 +20,7 @@ function update(time) {
 
         document.documentElement.style.setProperty("--hue", hue + delta * 0.01);
 
-        if(isLose()) handleLose();
+        if (isLose()) handleLose();
     };
 
     lastTime = time;
@@ -34,11 +34,15 @@ function isLose() {
 
 function handleLose() {
     const rect = ball.rect();
-    if(rect.right >= window.innerWidth) {
+    if (rect.right >= window.innerWidth) {
         playerScore.textContent = parseInt(playerScore.textContent) + 1;
     } else {
         computerScore.textContent = parseInt(computerScore.textContent) + 1;
-    }
+/*         if (computerScore.innerHTML == 3) {
+            console.log("Works");
+        }; */
+    };
+
     ball.reset();
     computerPaddle.reset();
 };
