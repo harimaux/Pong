@@ -21,7 +21,7 @@ export default class Paddle {
     reset() {
         this.position = 50;
     };
-    
+
     update(delta, ballHeight) {
         this.position += SPEED * delta * (ballHeight - this.position);
     };
